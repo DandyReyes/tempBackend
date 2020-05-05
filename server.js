@@ -1,21 +1,10 @@
 const express = require('express');
+const routes = require('./meta.routes');
 
 const app = express();
-const router = express.Router();
 
-app.use('/', (req, res) => {
-  router.get('/all', async () => {
-    try {
-      const allUsers = {
-        firstName: 'dandy',
-        lastName: 'reyes',
-      };
-      return res.send(allUsers);
-    } catch (err) {
-      res.send(err);
-    }
-  });
-});
+app.use(express.json());
+app.use('/', routes);
 
 app.listen(5000, () => {
   console.log('running server on port 5000');
