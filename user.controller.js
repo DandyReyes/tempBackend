@@ -4,7 +4,7 @@ exports.select = async (request, response, next) => {
       first: 'dandy',
       last: 'reyes',
     };
-    return response.send(allUsers);
+    response.send(allUsers);
   } catch (err) {
     next(err);
   }
